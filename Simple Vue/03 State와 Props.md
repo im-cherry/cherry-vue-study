@@ -4,54 +4,28 @@
 
 <br/>
 
-vue는 document에 직접적인 접근을 하여 DOM을 제어하지 않습니다.  
-state 라는 상태를 이용하여 DOM을 관리합니다.
-
-<br/>
-
-## 1. State
-
-component의 state는 data라는 함수를 이용하여 구성할 수 있습니다.
-
-- Box.vue
-
-  ```html
-  <script>
-    export default {
-      data() {
-        return {
-          width: 40,
-          height: 80,
-        };
-      },
-    };
-  </script>
-  ```
-
-<br/>
-<br/>
-
-## 2. State를 이용하여 Style 적용하기
-
-vue에 관련한 무엇인가를 적용하기 위해서는 `v-bind` 라는 것을 이용해야 합니다.  
-html tag에 인라인으로 스타일을 적용할 때는 `v-bind:style` 또는 `v-bind` 를 생략한 `:style` 을 이용합니다.
-
-props 나 state를 바탕으로 class를 적용해주기 위해서는 `v-bind:class`를 이용합니다.
+state와 props 는 component 가 데이터를 받거나 처리하고 보내기 위해 사용됩니다.  
+state는 내부 컴포넌트에서 생성하고 활동하고, 데이터를 변경할 수 있습니다.  
+props는 외부(부모) 컴포넌트에서 상속 받는 데이터이며, 데이터를 변경할 수 없습니다.  
+vue에 관련한 무엇인가를 적용하기 위해서는 `v-bind` 라는 것을 이용합니다. (`v-bind:style`, `:style`, `:class`)
 
 - Box.vue
 
   ```html
   <template>
     <div
-      v-bind:class="['box', color]"
-      v-bind:style="{width: width + 'px', height: height + 'px'}"
+      :class="['box', color]"
+      :style="{ width: width + 'px', height: height + 'px'}"
     ></div>
   </template>
 
   <script>
     export default {
       props: {
-        color: { type: String, default: "" },
+        color: {
+          type: String,
+          default: "",
+        },
       },
       data() {
         return {
@@ -80,34 +54,27 @@ props 나 state를 바탕으로 class를 적용해주기 위해서는 `v-bind:cl
 
 - App.vue
 
-```html
-<template>
-  <div>
-    <Box color="blue" />
-    <Box color="purple" />
-    <Box color="green" />
-    <Box color="blue" />
-    <Box color="purple" />
-    <Box />
-  </div>
-</template>
-```
+  ```html
+  <template>
+    <div>
+      <Box color="blue" />
+      <Box color="purple" />
+      <Box color="green" />
+    </div>
+  </template>
 
-<br/>
-<br/>
+  <script>
+    import Box from "@/components/Box";
+    export default {
+      name: "app",
+      components: {
+        Box,
+      },
+    };
+  </script>
 
-## 4. Props
-
-- App.vue
-
-```html
-
-```
-
-<br/>
-<br/>
-
-## 5. Props를 바탕으로 class bind 해보기
+  <style></style>
+  ```
 
 <br/>
 <br/>

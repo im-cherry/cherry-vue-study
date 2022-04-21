@@ -10,91 +10,91 @@ $ npm i --save vue-router
 
 - src/router.js
 
-```javascript
-import Vue from "vue";
-import VueRouter from "vue-router";
-import Home from "@/views/Home";
-import ErrorPage from "@/views/ErrorPage";
+  ```javascript
+  import Vue from "vue";
+  import VueRouter from "vue-router";
+  import ErrorPage from "./views/ErrorPage";
+  import Home from "./views/Home";
 
-Vue.use(VueRouter);
+  Vue.use(VueRouter);
 
-const router = new VueRouter({
-  mode: "history",
-  routes: [
-    {
-      path: "/",
-      component: Home,
-    },
-    {
-      path: "*",
-      component: ErrorPage,
-    },
-  ],
-});
+  const router = new VueRouter({
+    mode: "history",
+    routes: [
+      { path: "/", component: Home },
+      { path: "*", component: ErrorPage },
+    ],
+  });
 
-export default router;
-```
+  export default router;
+  ```
+
+````
 
 - src/views/Home.vue
 
-```html
-<template>
-  <div>
-    <h1>Home Page</h1>
-  </div>
-</template>
+    ```html
+    <template>
+    <div>
+        <h1>Home Page</h1>
+    </div>
+    </template>
 
-<script>
-  export default {};
-</script>
+    <script>
+    export default {};
+    </script>
 
-<style></style>
-```
+    <style></style>
+    ```
 
 - src/views/ErrorPage.vue
 
-```html
-<template>
-  <div>
-    <h1>Error Page</h1>
-  </div>
-</template>
+    ```html
+    <template>
+    <div>
+        <h1>Error Page</h1>
+    </div>
+    </template>
 
-<script>
-  export default {};
-</script>
-<style></style>
-```
+    <script>
+    export default {};
+    </script>
 
-- main.js
+    <style></style>
+````
 
-```javascript
-import Vue from "vue";
-import App from "@/App.vue";
-import router from "@/router";
+- src/main.js
 
-Vue.config.productionTip = false;
+  ```javascript
+  import Vue from "vue";
+  import App from "./App.vue";
+  import router from "./router";
 
-new Vue({
-  router,
-  render: (h) => h(App),
-}).$mount("#app");
-```
+  Vue.config.productionTip = false;
+
+  new Vue({
+    router,
+    render: (h) => h(App),
+  }).$mound("#app");
+  ```
 
 - App.vue
 
-```html
-<template>
-  <div>
-    <router-view />
-  </div>
-</template>
+  ```html
+  <template>
+    <div>
+      <router-view />
+    </div>
+  </template>
 
-<script>
-  export default {};
-</script>
+  <script>
+    export default {};
+  </script>
 
-<style></style>
-```
+  <style></style>
+  ```
+
+<br/>
+<br/>
 
 :arrow_forward:[09](./09%20Todo%20-%20%EC%A4%80%EB%B9%84.md):arrow_forward:

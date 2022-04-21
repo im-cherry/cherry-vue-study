@@ -4,33 +4,8 @@
 
 <br/>
 
-## 1. VUE CLI 란?
-
 vue-cli 는 기본 vue 개발 환경을 설정해주는 도구입니다.  
 vue-cli 가 기본적인 프로젝트 세팅을 해주기 때문에 폴더 구조에 대한 고민, lint, build, 어떤 라이브러리로 구성을 해야되는지 webpack 설정은 어떻게 해야되는지에 대한 고민을 덜 수 있습니다.
-
-_CLI(Command Line Interface) : 텍스트 터미널을 통해 사용자와 컴퓨터가 상호작용하는 방식_
-
-<br/>
-
-### 1) VUE-CLI 설치하기
-
-```
-$ npm install -g @vue/cli
-$ yarn global add @vue/cli
-
-$ vue --version
-```
-
-<br/>
-
-### 2) VUE-CLI로 프로젝트 생성해보기
-
-```
-$ vue create [프로젝트명]
-$ cd hello-vue
-$ npm run serve
-```
 
 > **라이브러리**
 >
@@ -43,6 +18,17 @@ $ npm run serve
 > - [Linter](https://eslint.org/) / [Formatter](https://github.com/prettier/prettier)
 > - [Unit Testing](https://jestjs.io/)
 > - [E2E Testing](https://www.cypress.io/)
+
+```
+$ npm install -g @vue/cli
+$ yarn global add @vue/cli
+
+$ vue --version
+
+$ vue create hello-vue
+$ cd hello-vue
+$ npm run serve
+```
 
 <br/>
 <br/>
