@@ -6,6 +6,7 @@
 
 ```
 $ npm i --save vue-router
+$ npm i --save vue-router@2
 ```
 
 - src/router.js
