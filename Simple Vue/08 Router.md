@@ -98,4 +98,4 @@ $ npm i --save vue-router@2
 <br/>
 <br/>
 
-:arrow_forward:[09](./09%20Todo%20-%20%EC%A4%80%EB%B9%84.md):arrow_forward:
+:arrow_forward:[09 Vuex](./09%20Vuex.md):arrow_forward:
