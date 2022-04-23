@@ -20,113 +20,113 @@ $ npm i --save vuex@3.4.0
 
 - src/store.js
 
-```javascript
-import Vue from "vue";
-import Vuex from "vuex";
+  ```javascript
+  import Vue from "vue";
+  import Vuex from "vuex";
 
-Vue.use(Vuex);
+  Vue.use(Vuex);
 
-export default new Vuex.Store({
-  state: {
-    counter: 0,
-  },
-  getters: {
-    counter: (state) => state.counter,
-  },
-  mutations: {
-    increment: (state) => state.counter + 1,
-    decrement: (state) => state.counter + 1,
-  },
-  actions: {
-      addCounter: context => context.commit("increment")
-      subCounter: context => context.commit("decrement")
-  },
-});
-```
+  export default new Vuex.Store({
+    state: {
+      counter: 0,
+    },
+    getters: {
+      counter: (state) => state.counter,
+    },
+    mutations: {
+      increment: (state) => state.counter += 1,
+      decrement: (state) => state.counter -= 1,
+    },
+    actions: {
+        addCounter: context => context.commit("increment")
+        subCounter: context => context.commit("decrement")
+    },
+  });
+  ```
 
 - main.js
 
-```javascript
-import Vue from "vue";
-import App from "./App.vue";
-import store from "./store";
+  ```javascript
+  import Vue from "vue";
+  import App from "./App.vue";
+  import store from "./store";
 
-Vue.config.productionTip = false;
+  Vue.config.productionTip = false;
 
-new Vue({
-  store,
-  render: (h) => h(App),
-}).$mount("#app");
-```
+  new Vue({
+    store,
+    render: (h) => h(App),
+  }).$mount("#app");
+  ```
 
 - components/Left.vue
 
-```html
-<template>
-  <div>
-    <button @click="subCounter">-</button>
-    <button @click="addCounter">+</button>
-  </div>
-</template>
+  ```html
+  <template>
+    <div>
+      <button @click="subCounter">-</button>
+      <button @click="addCounter">+</button>
+    </div>
+  </template>
 
-<script>
-  import { mapActions } from "vuex";
-  export default {
-    name: "Left",
-    methods: {
-      ...mapActions(["addCounter", "subCounter"]),
-    },
-  };
-</script>
+  <script>
+    import { mapActions } from "vuex";
+    export default {
+      name: "Left",
+      methods: {
+        ...mapActions(["addCounter", "subCounter"]),
+      },
+    };
+  </script>
 
-<style></style>
-```
+  <style></style>
+  ```
 
 - components/Right.vue
 
-```html
-<template>
-  <div>value: {{ counter }}</div>
-</template>
+  ```html
+  <template>
+    <div>value: {{ counter }}</div>
+  </template>
 
-<script>
-  import { mapGetters } from "vuex";
-  export default {
-    name: "Right",
-    computed: {
-      ...mapGetters(["counter"]),
-    },
-  };
-</script>
+  <script>
+    import { mapGetters } from "vuex";
+    export default {
+      name: "Right",
+      computed: {
+        ...mapGetters(["counter"]),
+      },
+    };
+  </script>
 
-<style></style>
-```
+  <style></style>
+  ```
 
 - App.vue
 
-```html
-<template>
-  <div>
-    <Left />
-    <Right />
-  </div>
-</template>
+  ```html
+  <template>
+    <div>
+      <Left />
+      <Right />
+    </div>
+  </template>
 
-<script>
-  import Left from "@/components/Left";
-  import Right from "@/components/Right";
+  <script>
+    import Left from "@/components/Left";
+    import Right from "@/components/Right";
 
-  export default {
-    name: "app",
-    components: {
-      Left,
-      Right,
-    },
-  };
-</script>
+    export default {
+      name: "app",
+      components: {
+        Left,
+        Right,
+      },
+    };
+  </script>
 
-<style></style>
-```
+  <style></style>
+  ```
 
 <br />
 <br />
